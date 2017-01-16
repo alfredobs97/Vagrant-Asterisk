@@ -1,0 +1,13 @@
+---
+- hosts: all
+
+  sudo: true
+  tasks:
+
+    - name: Actualizando la cache de apt
+      apt: update_cache=yes
+
+    - name: upgrade apt packages (Can take a while)
+      apt: upgrade=yes
+
+    - include: asterisk.yml
