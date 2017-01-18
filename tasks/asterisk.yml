@@ -17,6 +17,7 @@
    - "queues.conf"
    - "modules.conf"
    - "iax.conf"
+   - "voicemail.conf"
 
 - name: Restarting asterisk
   service:
