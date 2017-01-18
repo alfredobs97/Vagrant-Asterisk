@@ -1,16 +1,17 @@
 - name: Install Asterisk
-  apt: name={{ item }} update_cache=yes state=present
+  apt: name=asterisk update_cache=yes state=present
   sudo: yes
-  with_items:
-  - asterisk
 
 - name: Stopping asterisk
   service:
     name: asterisk
     state: stopped
 
-- name: copy consul_ui files
-  command: cp -r /home/vagrant/asterisk/{{ item }} /etc/asterisk/
+- name: copy files asterisk
+  template:
+     src=../asterisk/{{ item }}
+     dest=/etc/asterisk/{{ item }}
+
   with_items:
    - "sip.conf"
    - "extensions.conf"
